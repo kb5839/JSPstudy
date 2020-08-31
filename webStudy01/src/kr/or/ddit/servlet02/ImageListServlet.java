@@ -34,7 +34,6 @@ public class ImageListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String[] listFiles = folder.list((dir, name)->{
 			boolean accept = false;
-			//image/jpeg, image/gif, image/png
 			String mime = application.getMimeType(name);
 			accept = mime != null && (mime.startsWith("image/") || mime.startsWith("video/"));
 			return accept;
@@ -46,6 +45,9 @@ public class ImageListServlet extends HttpServlet {
 		}
 		Map<String, Object> attributeMap = new LinkedHashMap<>();
 		attributeMap.put("options", options);
+		attributeMap.put("context", req.getContextPath());
+		attributeMap.put("path", req.getContextPath());
+		attributeMap.put("path2", req.getContextPath());
 		String tmplPath = "/kr/or/ddit/servlet02/fileList.tmpl";
 		String html = TemplateUtils.readAndReplace(tmplPath, attributeMap);
 		
@@ -53,5 +55,7 @@ public class ImageListServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		out.println(html);
 		out.close();
+		
+		
 	}
 }
