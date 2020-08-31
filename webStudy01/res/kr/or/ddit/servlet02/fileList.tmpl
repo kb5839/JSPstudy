@@ -1,0 +1,34 @@
+<html>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script> 
+	<script type="text/javascript">
+		$(function(){
+			var imgPtrn = "<img src='image.do?image=%S' />";
+			var videoPtrn = "<video src='image.do?image=%S'/>";
+			var resultArea = $("#resultArea");
+			$("select").on("change", function(){
+				let value = $(this).val();
+				let option = $(this).find("option:selected");
+				let clzName = $(option).attr("class");
+				if(clzName.startsWith("image")){
+					let imgTag = imgPtrn.replace("%S", value);
+					resultArea.html(imgTag);
+				}else if(clzName.startsWith("video")){
+					innerTag = videoPtrn.replace("%S", value);
+				}
+				if(innerTag){
+					resultArea.html(videoTag);
+				}
+			});
+		})
+	</script>
+	<body>
+		<select>
+			<option>파일선택</option>
+			@options
+		</select>
+		<div id="resultArea">
+			
+		</div>
+	</body>
+</html>

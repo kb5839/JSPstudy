@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>webStudy01</display-name>
+  <servlet>
+  	<servlet-name>DescrptionServlet</servlet-name>
+  	<servlet-class>kr.or.ddit.servlet01.DescrptionServlet</servlet-class>
+  	<init-param>
+  		<param-name>initName</param-name>
+  		<param-value>/eclipse.ini</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DescrptionServlet</servlet-name>
+  	<url-pattern>/desc.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ImageListServlet</servlet-name>
+  	<servlet-class>kr.or.ddit.servlet02.ImageListServlet</servlet-class>
+  	<init-param>
+  		<param-name>contentsPath</param-name>
+  		<param-value>e:/contents</param-value>
+  	</init-param>
+  	<load-on-startup>2</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ImageListServlet</servlet-name>
+  	<url-pattern>/Image/imageList.do</url-pattern>
+  </servlet-mapping>
+</web-app>
