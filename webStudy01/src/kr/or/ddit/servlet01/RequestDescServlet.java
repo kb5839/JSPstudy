@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Http 의 request 명세
  * 1) request Line : Protocal/version, URL(수신자), Method(요청의 목적, 방법)
- * 		- Get (R) :조회, 일반적으로 클라이언트의 기본 요청 메소드, Body 영역이 형성되지 않음
  * 		- POST(C) : 생성, 서버측으로 전달한 컨텐츠를 갖고있는 요청으로 Body 영역이 형성됨.
+ * 		- Get (R) :조회, 일반적으로 클라이언트의 기본 요청 메소드, Body 영역이 형성되지 않음
  * 		- PUT (U) : 수정, method-"post", _method-"put" 파라미터 추가함
  * 		- DELETE(D) : 삭제, method-"post", _method-"delete" 파라미터 추가함
  * 		- HEADER : 응답데이터를 헤더만 받겠다.

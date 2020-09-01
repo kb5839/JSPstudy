@@ -30,7 +30,11 @@
 <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../js/calForm.js"></script>
 <script type="text/javascript">
-// 	$("#calForm").convertForm("#resultArea");
+
+	$("#calForm").convertForm(function(resp) {
+			resultArea.text(resp);
+			
+	});
 // 	$("#test").convertForm("#resultArea");
 </script>
 </body>
