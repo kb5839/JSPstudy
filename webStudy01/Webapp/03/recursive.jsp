@@ -1,3 +1,5 @@
+<%@page import="java.util.Objects"%>
+<%@page import="org.apache.commons.lang3.StringUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%!
@@ -20,32 +22,22 @@ private long factorial(int num, StringBuffer expr){
 <title>03/practice.jsp</title>
 </head>
 <body>
-<!-- 	1.브라우저에 1~10까지의 숫자 출력  -->
-<!-- 	2.브라우저에 !10 연산의 결과를 !10=?? 와 같은 형식으로 출력  -->
-<!-- 	3.재귀호출구조를 이용하여 2번을 다시 처리  -->
-<!-- 	4.2~9단을 구구단으로 출력, 승수는 1~9까지 table태그를 사용하여 2차원 행렬 형태로출력  -->
-<!-- 	5.구구단의 곱하기 연산을 수행하는 메소드를 분리하여 처리 -->
-
- <%--
- try{
- 	factorial(10);
- }catch(IllegalArgumentException e){
-	e.printStackTrace();
- }
- --%> 
-
-<form action="">
-	<input type="number" name="data" required>
-	<input type="submit" value="전송">
-</form>
 	<pre>
 	<%
-	String data = "";
-	int num = Integer.parseInt(data);
+	String opParam = request.getParameter("op");
+	if(StringUtils.isNotBlank(opParam) && StringUtils.isNumeric(opParam)){
+	int num = Integer.parseInt(opParam);
 	StringBuffer expr = new StringBuffer();
 	long result = factorial(num, expr);
 	%>
 	<%=String.format("!%d= %s = %d", num, expr, result) %>
+	<%
+	}	
+	%>
 	</pre>
+	<form>  <!-- 액션을 생략할 때는 상대경로 -->
+	피연산자 : <input type="text" name="op" value="<%=Objects.toString(opParam,"") %>" required>
+	<input type="submit" value="전송">
+</form>
 </body>
 </html>

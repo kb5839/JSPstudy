@@ -40,5 +40,16 @@
 		d2
 		<div id="d3">d3</div>
 	</div>
+	<script type="text/javascript">
+	var object1 = {
+			prop1 : "value1",
+			prop2 : "value2"
+	}
+	var object2 = {};
+	object2.prop1 = "value1";
+	object2['prop2'] = "value2";  // 연관배열, 연상배열구조
+	//javascript 객체를 JSON데이터로 변환 : marshalling, JSON,stringify
+	//JSON을 javascript 객체로 변환 : unmarshalling, JSON.parse
+	</script>
 </body>
 </html>
