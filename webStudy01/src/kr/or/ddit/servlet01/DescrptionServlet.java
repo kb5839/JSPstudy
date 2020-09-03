@@ -68,9 +68,10 @@ public class DescrptionServlet extends HttpServlet {
 	
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		super.destroy();
-		System.out.printf("%s 소멸\n", getClass().getSimpleName());
+		
+		  // TODO Auto-generated method stub super.destroy();
+		  System.out.printf("%s 소멸\n", getClass().getSimpleName());
+		 
 	}
 	
 	
