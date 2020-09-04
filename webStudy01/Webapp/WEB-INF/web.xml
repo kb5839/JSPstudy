@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>webStudy01</display-name>
+  <context-param>
+ 	<param-name>testParam</param-name>
+ 	<param-value>paramValue</param-value> 
+  </context-param>
+  <context-param>
+  <param-name>contentsPath</param-name>
+  <param-value>e::/contents</param-value>
+  </context-param>
   <servlet>
   	<servlet-name>DescrptionServlet</servlet-name>
   	<servlet-class>kr.or.ddit.servlet01.DescrptionServlet</servlet-class>
@@ -30,6 +38,10 @@
   	<servlet-name>ImageListServlet</servlet-name>
   	<url-pattern>/Image/imageList.do</url-pattern>
   </servlet-mapping>
+  <session-config>
+  <session-timeout>2</session-timeout>
+<!--   <tracking-mode></tracking-mode> -->
+  </session-config>
 <!--   <error-page>
 
   	<exception-type>/webStudy01/src/kr/or/ddit/exception/CustomException.java</exception-type>

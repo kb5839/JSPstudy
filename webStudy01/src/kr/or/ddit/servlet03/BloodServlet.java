@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/getCharacter.do", loadOnStartup = 1)
 public class BloodServlet extends HttpServlet{
+	
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {

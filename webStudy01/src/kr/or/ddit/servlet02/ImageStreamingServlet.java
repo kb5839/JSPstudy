@@ -11,11 +11,14 @@ import java.io.*;
 public class ImageStreamingServlet extends HttpServlet{
 	
 	private File folder;
-	
+	private ServletContext application;
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		String contentsPath = config.getInitParameter("contentsPath");
+		System.out.println(getServletContext().hashCode());
+//		String contentsPath = config.getInitParameter("contentsPath");
+		application = getServletContext();
+		String contentsPath = application.getInitParameter("contentsPath");
 		folder = new File(contentsPath);
 	}
 	
