@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 @WebServlet("/serverExplorer.do")
 public class ServerExplorerServlet extends HttpServlet {
 	
@@ -19,11 +21,18 @@ public class ServerExplorerServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		
 		application = getServletContext();
 	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String currentPath = "/";
+		String ref = req.getParameter("ref");
+		if(StringUtils.isNotBlank(ref)) {
+			currentPath = ref;
+		}
 		String realPath = application.getRealPath(currentPath);
 		File folder = new File(realPath);
 		File[] listFiles = folder.listFiles();
@@ -31,5 +40,30 @@ public class ServerExplorerServlet extends HttpServlet {
 		req.setAttribute("listFiles", listFiles);
 		
 		req.getRequestDispatcher("/WEB-INF/views/serverExplorer.jsp").forward(req, resp);
+		
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
