@@ -31,7 +31,7 @@
   		<param-name>contentsPath</param-name>
   		<param-value>e:/contents</param-value>
   	</init-param>
-  	<load-on-startup>2</load-on-startup>
+  	<load-on-startup>10</load-on-startup>
   </servlet>
   
   <servlet-mapping>
