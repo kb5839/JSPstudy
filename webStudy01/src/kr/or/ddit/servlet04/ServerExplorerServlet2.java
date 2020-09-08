@@ -25,8 +25,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebServlet("/serverExplorer.do")
-public class ServerExplorerServlet extends HttpServlet {
+@WebServlet("/serverExplorer2.do")
+public class ServerExplorerServlet2 extends HttpServlet {
    
    private ServletContext application;
    
@@ -221,7 +221,7 @@ public class ServerExplorerServlet extends HttpServlet {
          //js로 다시 오면 deserial.... 언마샬링 해서 자바스크립트 객체로ㅜ ,,, 
       } else {
          req.setAttribute("listFiles", wrappers); //자식들을 request scope에 담는다. 
-         req.getRequestDispatcher("/WEB-INF/views/serverExplorer.jsp").forward(req, resp);
+         req.getRequestDispatcher("/WEB-INF/views/serverExplorer2.jsp").forward(req, resp);
          
       }
       
