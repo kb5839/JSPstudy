@@ -40,24 +40,10 @@ public class ImageListServlet extends HttpServlet {
 			accept = mime != null && (mime.startsWith("image/") || mime.startsWith("video/"));
 			return accept;
 		});
-		StringBuffer options = new StringBuffer();
-		for(String file : listFiles) {
-			String fileMime = application.getMimeType(file);
-			options.append(String.format(pattern, fileMime, file));
-		}
-		Map<String, Object> attributeMap = new LinkedHashMap<>();
-		attributeMap.put("options", options);
-		attributeMap.put("context", req.getContextPath());
-		attributeMap.put("path", req.getContextPath());
-		attributeMap.put("path2", req.getContextPath());
-		String tmplPath = "/kr/or/ddit/servlet02/fileList.tmpl";
-		String html = TemplateUtils.readAndReplace(tmplPath, attributeMap);
 		
-		resp.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println(html);
-		out.close();
-		
+		req.setAttribute("listFiles", listFiles);
+		req.setAttribute("includePage", "/WEB-INF/views/imageView.jsp");
+		req.getRequestDispatcher("/WEB-INF/views/layout.jsp").forward(req, resp);
 		
 	}
 }

@@ -7,7 +7,7 @@
   </context-param>
   <context-param>
   <param-name>contentsPath</param-name>
-  <param-value>e::/contents</param-value>
+  <param-value>e:/contents</param-value>
   </context-param>
   <servlet>
   	<servlet-name>DescrptionServlet</servlet-name>
@@ -56,4 +56,10 @@
   <error-code>404</error-code>
   <location>/error/error404.jsp</location>
   </error-page> -->
+<!--   <jsp-config> -->
+<!--   <jsp-property-group> -->
+<!--   <url-pattern>/09/*</url-pattern> -->
+<!--   <include-prelude>/0/calendar.jsp</include-prelude> -->
+<!--   </jsp-property-group> -->
+<!--   </jsp-config> -->
 </web-app>

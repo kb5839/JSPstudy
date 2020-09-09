@@ -6,7 +6,7 @@
 <body>
 	<select>
 		<%
-   File file = new File("d:/contents/");
+   File file = new File("e:/contents/");
    String pattern = "<option class='%s'>%s</option>\n";
    
    FilenameFilter fileName = new FilenameFilter(){
