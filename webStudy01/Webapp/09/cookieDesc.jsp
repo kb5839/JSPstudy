@@ -37,6 +37,7 @@
 	Cookie[] cookies = request.getCookies();
 		String cookieValue = null;
 	if(cookies!=null){
+		
 		for(Cookie tmp : cookies){
 			if("sampleCookie".equals(tmp.getName())){
 				cookieValue = tmp.getValue();
