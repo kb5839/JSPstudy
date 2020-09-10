@@ -6,7 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.*;
 
 //CoC페러다임 - 톰캣, 스프링
-@WebServlet(urlPatterns = "/Image/image.do", 
+@WebServlet(urlPatterns = "/image/image.do", 
 			initParams = {@WebInitParam(name = "contentsPath", value = "e:/contents")})
 public class ImageStreamingServlet extends HttpServlet{
 	

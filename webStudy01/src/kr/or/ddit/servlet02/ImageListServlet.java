@@ -28,22 +28,22 @@ public class ImageListServlet extends HttpServlet {
 		String contentsPath = getServletContext().getInitParameter("contentsPath");
 		System.out.println(getServletContext().hashCode());
 		folder = new File(contentsPath);
-		
+
 		application = getServletContext();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String[] listFiles = folder.list((dir, name)->{
+		String[] listFiles = folder.list((dir, name) -> {
 			boolean accept = false;
 			String mime = application.getMimeType(name);
 			accept = mime != null && (mime.startsWith("image/") || mime.startsWith("video/"));
 			return accept;
 		});
-		
+
 		req.setAttribute("listFiles", listFiles);
 		req.setAttribute("includePage", "/WEB-INF/views/imageView.jsp");
 		req.getRequestDispatcher("/WEB-INF/views/layout.jsp").forward(req, resp);
-		
+
 	}
 }
